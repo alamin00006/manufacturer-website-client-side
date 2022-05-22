@@ -1,53 +1,75 @@
-import React, { useEffect } from 'react';
-
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
+import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
+import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
-
-const Login = () => {
-
+const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
-    ] = useSignInWithEmailAndPassword(auth);
-    const [token] = useToken(user ||gUser)
-    
-    const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-// useEffect(() =>{
-//   if(token){
-//     navigate(from, { replace: true });
-//   }
-// }, [token, from, navigate])
-if( loading || gLoading){
+      const [updateProfile, updating, uError] = useUpdateProfile(auth);
+const navigate = useNavigate()
+const [token] = useToken(user ||gUser)
+if(token){
+    navigate('/')
+}
+if( loading || gLoading || updating){
   return <Loading></Loading>
 }
 let singInError;
-if(error || gError){
-  singInError = <p className='text-red-500'>{error?.message} || {gError?.message}</p>
+if(error || gError || uError){
+  singInError = <p className='text-red-500'>{error?.message} || {gError?.message} || {uError?.message}</p>
 }
 
-const onSubmit = data =>{
+const onSubmit = async data =>{
 console.log(data);
-signInWithEmailAndPassword(data.email, data.password)
+await createUserWithEmailAndPassword(data.email, data.password);
+await updateProfile({ displayName: data.name});
+
 };
+    
+    
+    
     return (
-   <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
   <div className="card-body">
-    <h2 className="text-center text-3xl font-bold">Login</h2>
+    <h2 className="text-center text-3xl font-bold">Sign Up</h2>
 
     <form onSubmit={handleSubmit(onSubmit)}>
+
+    <div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">Name</span>
+      </label>
+  <input 
+ 
+  {...register("name", {
+
+    required:{
+        value: true,
+        message:'Name is required'
+    }
+   
+  })}
+  type="name" placeholder="Enter Your Name" className="input input-bordered w-full max-w-xs" />
+  <label className="label">
+  {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+ 
+
+    
+    
+  </label>
+</div>
 
     <div className="form-control w-full max-w-xs">
   <label className="label">
@@ -103,9 +125,9 @@ signInWithEmailAndPassword(data.email, data.password)
   </label>
 </div>
       {singInError}
-      <input className='btn text-center w-full max-w-xs' type="submit"  value='Login'/>
+      <input className='btn text-center w-full max-w-xs' type="submit"  value='Sign Up'/>
     </form>
-    <p>New to Doctor Portal? <Link className='text-primary' to="/signup"><small>Create New Account</small></Link></p>
+    <p>Already have a Account? <Link className='text-primary' to="/login"><small>Please Login</small></Link></p>
     <div className="divider">OR</div>
     <button onClick={() => signInWithGoogle()} className="btn btn-outline">Singn In with Google</button>
   </div>
@@ -114,4 +136,5 @@ signInWithEmailAndPassword(data.email, data.password)
     );
 };
 
-export default Login;
+export default SignUp;
+
