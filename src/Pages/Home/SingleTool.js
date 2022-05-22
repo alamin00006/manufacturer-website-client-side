@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SingleTool = ({tool}) => {
-    const {id, name, picture, unitPrice, quantity, minimumQuantity,AvailableStock, description} = tool;
+    const {_id, name, picture, unitPrice, quantity, minimumQuantity,AvailableStock, description} = tool;
    const navigate = useNavigate()
 const pharchase =() =>{
-navigate(`purchase/${id}`)
+navigate(`purchase/${_id}`)
 }
 
     return (
