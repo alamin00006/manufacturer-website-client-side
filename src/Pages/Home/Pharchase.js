@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Pharchase = () => {
@@ -20,7 +21,41 @@ const Pharchase = () => {
  }, [reload])
   const minimumQuantityError = <p className='text-red-500'>Please more than order</p>
   const bigQuantityError = <p className='text-red-500'>No Available Stock</p>
-const handleNewQuantity = (event) =>{
+
+const handleOrder = (event) =>{
+event.preventDefault();
+
+const orderData = {
+    orderId : oneParts._id ,
+    productName: oneParts.name,
+    price : oneParts.unitPrice,
+    customerName : user?.displayName,
+    customer : user?.email,
+    address: event.target.address.value,
+    phone: event.target.phone.value,
+
+}
+fetch('http://localhost:5000/order', {
+method: 'POST',
+headers:{
+  'content-type': 'application/json'
+},
+body: JSON.stringify(orderData)
+})
+.then(res =>res.json())
+.then(data => {
+  console.log(data)
+  if(data.success){
+   toast.success('Your Order is Done')
+  }
+  else{
+   toast.error('Allready this item orderd')
+  }
+})
+
+}
+
+const handleIncreaseQuantity = (event) =>{
   event.preventDefault();
   const stock = parseInt(oneParts.AvailableStock)
   const newQuantity1 = parseInt(event.target.quantity.value)
@@ -54,7 +89,7 @@ const handleNewQuantity = (event) =>{
   }
 
 
- const deliverdHandle = () =>{
+ const handleDecreseQuantity = () =>{
   
     const quantity = parseInt(oneParts?.newQuantity)-1;
   
@@ -90,18 +125,29 @@ const handleNewQuantity = (event) =>{
         <div className='text-center bg-red-200'>
           <h1 className='text-primary text-3xl'>Phurchase Page</h1>
           
+          <p> product Name :{oneParts.name}</p>
           <p> Minimum Order :{oneParts.minimumQuantity}</p>
           <p> Order Quantity:{oneParts.newQuantity}</p>
            <p> Available Stock: {oneParts.AvailableStock}</p>
-           <p> Price: {oneParts.unitPrice}</p>
+           <p> Unit Price: {oneParts.unitPrice}</p>
            {error}
-           <button onClick={deliverdHandle} className='btn btn-warning text-5xl'>-</button>
+           <button onClick={handleDecreseQuantity} className='btn btn-warning text-5xl'>-</button>
           
-           <form onSubmit={handleNewQuantity}>
+           <form onSubmit={handleIncreaseQuantity}>
             <input type="text" className='w-60 border rounded'  name="quantity" id="" />
             <input className='btn btn-primary ml-2' type="submit" value="Quantity increase" />
            </form>
 
+          <div>
+            <form onSubmit={handleOrder}>
+           <p>Name :  <input type="text" disabled value={user?.displayName} name="" id="" /></p>
+           <p>Email : <input type="email" disabled value={user?.email} name="" id="" /></p>
+          <p>Address :  <textarea type="email" placeholder='your address' name="address" id="" /></p>
+           <p>Phone : <input type="number" placeholder='phone number' name="phone" id="" /></p>
+          <p>Price : <input type="text" disabled value={oneParts.unitPrice} name="" id="" /></p>
+                <input className='btn btn-primary' type="submit" value="Order" name="" id="" />
+            </form>
+          </div>
           
          
 
