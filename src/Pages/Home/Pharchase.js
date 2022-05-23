@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {useParams } from 'react-router-dom';
+import {Link, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Pharchase = () => {
@@ -91,12 +91,12 @@ const handleNewQuantity = () =>{
           <p> Minimum Order :{oneParts.minimumQuantity}</p>
           <p> Order Quantity:{oneParts.newQuantity}</p>
            <p> Available Stock: {oneParts.AvailableStock}</p>
-           <p> unit Price: {oneParts.unitPrice}</p>
+           <p> Price: {oneParts.unitPrice}</p>
            {error}
            <button onClick={deliverdHandle} className='btn btn-warning text-5xl'>-</button>
            <button onClick={handleNewQuantity} className='btn btn-warning text-5xl'>+</button>
 
-           <form>
+           {/* <form>
            <p>Name : <input type="text" disabled name="name" value={user?.displayName} id="" /></p>
            <p>Email : <input type="email" disabled name="email" value={user?.email} id="" /></p>
            <p>Phone: <input type="text" placeholder='phone number' name="phone" id="" /></p>
@@ -106,7 +106,13 @@ const handleNewQuantity = () =>{
            <br />
            <input className='btn btn-primary' type="submit" value="Pay Now" />
           
-          </form>
+          </form> */}
+          <p>
+          {(oneParts.unitPrice && !oneParts.paid) && <Link to={`/payment/${pharchaseId}`}><button>Pay Now</button></Link>}
+          
+          {(oneParts.unitPrice && oneParts.paid) && <button>Paid</button>}
+          </p>
+
         </div>
     );
     };
