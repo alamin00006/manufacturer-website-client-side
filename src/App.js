@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Payment from './Pages/Home/Payment';
 import Pharchase from './Pages/Home/Pharchase';
 import Login from './Pages/Login/Login';
+import RequireAuth from './Pages/Login/RequreAuth';
 import SignUp from './Pages/Login/SignUp';
 import Navber from './Pages/Navber/Navber';
 
@@ -15,7 +16,9 @@ function App() {
       <Routes>
       <Route path='/' element ={<Home></Home>}></Route>
       <Route path='/dashboard' element ={<Dashboard></Dashboard>}></Route>
-      <Route path='/purchase/:pharchaseId' element ={<Pharchase></Pharchase>}></Route>
+      <Route path='/purchase/:pharchaseId' element ={<RequireAuth>
+        <Pharchase></Pharchase>
+      </RequireAuth>}></Route>
       <Route path='/payment/:id' element ={<Payment></Payment>}></Route>
       <Route  path='/login' element={<Login></Login>}></Route>
       <Route  path='/signup' element={<SignUp></SignUp>}></Route>

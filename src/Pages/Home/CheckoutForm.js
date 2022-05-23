@@ -8,24 +8,30 @@ const CheckoutForm = ({data}) => {
  const [cardError, setCardError] = useState('')
  const [clientSecret, setClientSecret] = useState('')
 
+ console.log(clientSecret)
+
+ 
    const {unitPrice} = data;
    
 
- useEffect(() =>{
-    fetch('http://localhost:5000/create-payment-intent',{
-        method:"POST",
-        headers:{
-            'content-type':'application/json'
+   useEffect(() => {
+    fetch('http://localhost:5000/create-payment-intent', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         },
-        body:JSON.stringify({unitPrice})
+        body: JSON.stringify({ unitPrice })
     })
-    .then(res =>res.json())
-    .then(data =>{
-        if(data?.clientSecret){
-            setClientSecret(data.clientSecret)
-        }
-    })
- }, [unitPrice])
+        .then(res => res.json())
+        .then(data => {
+            if (data?.clientSecret) {
+                setClientSecret(data.clientSecret);
+            }
+        });
+
+}, [unitPrice])
+
     const handleSubmit = async (event) =>{
        event.preventDefault() 
 
@@ -66,7 +72,7 @@ const CheckoutForm = ({data}) => {
           },
         }}
       />
-      <button className='btn btn-primary my-2' type="submit" disabled={!stripe}>
+      <button className='btn btn-primary my-2' type="submit" disabled={!stripe || !clientSecret}>
         Pay
       </button>
     </form>
