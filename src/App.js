@@ -13,6 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyOrder from './Pages/Dashboard/MyOrder';
 import AddReview from './Pages/Dashboard/AddReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import AddProduct from './Pages/Dashboard/AddProduct';
+import ManageProduct from './Pages/Dashboard/ManageProduct';
 function App() {
   return (
     <div>
@@ -23,6 +27,10 @@ function App() {
         <Route index element={<MyOrder></MyOrder>}></Route>
         <Route path='review' element={<AddReview></AddReview>}></Route>
         <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+        <Route path='users' element={<MakeAdmin></MakeAdmin>}></Route>
+        <Route path='allorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+        <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
       </Route>
       <Route path='/purchase/:pharchaseId' element ={<RequireAuth>
         <Pharchase></Pharchase>
