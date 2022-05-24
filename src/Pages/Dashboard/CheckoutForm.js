@@ -12,6 +12,7 @@ const CheckoutForm = ({data}) => {
 
  
    const {unitPrice} = data;
+   console.log('data',data)
    
 
    useEffect(() => {

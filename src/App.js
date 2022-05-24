@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
-import Payment from './Pages/Home/Payment';
 import Pharchase from './Pages/Home/Pharchase';
 import Login from './Pages/Login/Login';
 import RequireAuth from './Pages/Login/RequreAuth';
@@ -18,6 +17,7 @@ import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Blog from './Pages/Home/Blog';
+import Payment from './Pages/Dashboard/Payment';
 function App() {
   return (
     <div>
@@ -33,11 +33,12 @@ function App() {
         <Route path='allorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
         <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
         <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
+        <Route path='payment/:id' element ={<Payment></Payment>}></Route>
       </Route>
       <Route path='/purchase/:pharchaseId' element ={<RequireAuth>
         <Pharchase></Pharchase>
       </RequireAuth>}></Route>
-      <Route path='/payment/:id' element ={<Payment></Payment>}></Route>
+      
       <Route  path='/login' element={<Login></Login>}></Route>
       <Route  path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
