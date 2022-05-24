@@ -44,13 +44,14 @@ const MyOrder = () => {
         <th>Email</th>
         <th>Product</th>
         <th>Price</th>
+        <th>Payment</th>
 
       </tr>
     </thead>
     <tbody>
      
       {
-          orders.map( (order, index) => <UserOrder key={index}
+          orders.map( (order, index) => <UserOrder key={order._id}
           order ={order} index ={index}
           ></UserOrder>)
       }
