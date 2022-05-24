@@ -17,12 +17,14 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
+import Blog from './Pages/Home/Blog';
 function App() {
   return (
     <div>
       <Navber></Navber>
       <Routes>
       <Route path='/' element ={<Home></Home>}></Route>
+      <Route path='/blog' element ={<Blog></Blog>}></Route>
       <Route path='/dashboard' element ={<Dashboard></Dashboard>}>
         <Route index element={<MyOrder></MyOrder>}></Route>
         <Route path='review' element={<AddReview></AddReview>}></Route>
