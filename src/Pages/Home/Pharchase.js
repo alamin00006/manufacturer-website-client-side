@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -11,10 +11,15 @@ const Pharchase = () => {
     const [error, setError] = useState('');
  const [reload, setReload] = useState(true);
 
-
+console.log(pharchaseId)
  useEffect( () =>{
      const url = `http://localhost:5000/parts/${pharchaseId}`;
-     fetch(url)
+     fetch(url,{
+       method:"GET",
+       headers: {
+        authorization : `Bearer ${localStorage.getItem('accessToken')}`
+    }
+     })
      .then(res =>res.json())
      .then(data =>setOneParts(data))
     

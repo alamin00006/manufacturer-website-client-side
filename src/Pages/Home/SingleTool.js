@@ -6,6 +6,7 @@ const SingleTool = ({tool}) => {
    const navigate = useNavigate()
 const pharchase =() =>{
 navigate(`purchase/${_id}`)
+
 }
 
     return (
@@ -21,6 +22,7 @@ navigate(`purchase/${_id}`)
     <p>{description.slice(0,50)}</p>
     <div class="card-actions">
       <button onClick={pharchase} class="btn btn-primary"><Link to="/purchase">Pharchase Now</Link></button>
+      
     </div>
   </div>
 </div>

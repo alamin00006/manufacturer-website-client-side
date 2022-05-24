@@ -9,17 +9,14 @@ const stripePromise=loadStripe('pk_test_51L2SF2APuqOzXrGiuYKCMJAZ8I0Zu6eikoKxiBI
 const Payment = () => {
     const {id} = useParams()
     console.log(id)
-    const url = `http://localhost:5000/parts/${id}`;
-    const {data, isLoading} = useQuery(['parts', id], ()=> fetch(url, {
+    const url = `http://localhost:5000/orders/${id}`;
+    const {data : data, isLoading} = useQuery(['parts', id], ()=> fetch(url, {
         method:"GET",
-        headers:{
-            "content-type":"application/json",
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        },
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
     }).then(res=>res.json()))
-    console.log(data)
+    
     if(isLoading){
         return <Loading></Loading>
     }
@@ -29,7 +26,7 @@ const Payment = () => {
   <div class="card-body">
     <h2 class="card-title">{data?.name}</h2>
         <div class="card-actions justify-end">
-        <p>Please Pay : ${data?.unitPrice}</p>
+        <p>Please Pay : ${data?.price}</p>
       
     </div>
   </div>
