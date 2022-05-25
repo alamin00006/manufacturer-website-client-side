@@ -80,7 +80,7 @@ const CheckoutForm = ({data}) => {
           const payment = {
               ProductId: _id,
               transactionId: paymentIntent.id,
-              pending: customer
+              status: 'pending'
 
           }
 

@@ -28,9 +28,9 @@ function App() {
       <Route path='/' element ={<Home></Home>}></Route>
       <Route path='/blog' element ={<Blog></Blog>}></Route>
       <Route path='/dashboard' element ={<Dashboard></Dashboard>}>
-        <Route index element={<MyOrder></MyOrder>}></Route>
+        <Route path='myOrders' element={<MyOrder></MyOrder>}></Route>
         <Route path='review' element={<AddReview></AddReview>}></Route>
-        <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+        <Route index element={<MyProfile></MyProfile>}></Route>
         <Route path='users' element={<MakeAdmin></MakeAdmin>}></Route>
         <Route path='allorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
         <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>

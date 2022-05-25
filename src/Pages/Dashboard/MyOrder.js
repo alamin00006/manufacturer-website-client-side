@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import OrderDeleteModal from './OrderDeleteModal';
 import UserOrder from './UserOrder';
 
 const MyOrder = () => {
     const [orders, setOrder] = useState([]);
+    const [productDelete, setProductDelete] = useState(null)
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
     useEffect( () =>{
@@ -53,11 +55,15 @@ const MyOrder = () => {
       {
           orders.map( (order, index) => <UserOrder orders={orders} setOrder={setOrder} key={order._id}
           order ={order} index ={index}
+          setProductDelete={setProductDelete}
           ></UserOrder>)
       }
     </tbody>
   </table>
 </div>
+{
+  productDelete && <OrderDeleteModal setProductDelete={setProductDelete} setOrder={setOrder} orders={orders} productDelete={productDelete}></OrderDeleteModal>
+}
         </div>
     );
 };

@@ -21,8 +21,8 @@ const {data: users, isLoading, refetch} = useQuery('users', () => fetch('http://
       <tr>
         <th></th>
         <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Make Admin</th>
+        <th>Remove User</th>
       </tr>
     </thead>
     <tbody>
