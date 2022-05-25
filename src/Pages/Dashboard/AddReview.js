@@ -7,11 +7,12 @@ const AddProduct = () => {
  const p = <p className='text-red-500'>Ratins give you under 5 or 5</p>
  const handleNewProduct = (event) =>{
      event.preventDefault();
-     const name = event.target.name.value;
+   
      const review = event.target.review.value;
-     const picture = event.target.picture.value;
+     const name = event.target.name.value;
+     
      const description = event.target.description.value;
-     const newItem = {name,picture,description,review};
+     const newItem = {name,description,review};
      if(review > 5){
         return setError(p)
      }
@@ -39,19 +40,17 @@ const AddProduct = () => {
  }
     return (
         <div className='text-center text-xl'>
-            <h1 className='text-primary mt-5 text-3xl'>Add New Item</h1>
+            <h1 className='text-primary mt-5 text-3xl'>Add A Review</h1>
             <form className='mt-5 bg-accent py-5 border rounded' onSubmit={handleNewProduct}>
-                <p>Your Name : <input className='px-5' type="text" name="name" id="" placeholder='name'/><br /></p>
+             
+            <p>Your Ratings : <input className='px-5 my-2' type="text" name="name" id="" placeholder='Your Name'/><br /></p>
+               <p>Description : <textarea type="text" className='px-5 mt-2' name="description" 
+                placeholder='description' id="" /></p>
+      
                 <p>Your Ratings : <input className='px-5 mt-2' type="number" name="review" id="" placeholder='Your Ratings'/><br /></p>
                 {error}
-                
-                <br />
-               <p>Description : <textarea type="text" className='px-5' name="description" 
-                placeholder='description' id="" /></p>
-                <br />
-                <p>Your Image :  <input type="text" className='px-5' name="picture" placeholder='image url' id="" /></p>
-                <br />
-                 <input className='btn btn-primary' type="submit" value="Add New Item" />
+               
+                 <input className='btn btn-primary mt-2' type="submit" value="Add a Review" />
                 </form>
            
         </div>

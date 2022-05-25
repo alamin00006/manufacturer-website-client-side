@@ -38,12 +38,15 @@ const orderData = {
     customer : user?.email,
     address: event.target.address.value,
     phone: event.target.phone.value,
+    orderQuantity: event.target.orderQuantity.value,
 
 }
 fetch('http://localhost:5000/order', {
 method: 'POST',
 headers:{
-  'content-type': 'application/json'
+  'content-type': 'application/json',
+  authorization : `Bearer ${localStorage.getItem('accessToken')}`
+
 },
 body: JSON.stringify(orderData)
 })
@@ -148,6 +151,7 @@ const handleIncreaseQuantity = (event) =>{
            <p>Name :  <input type="text" disabled value={user?.displayName} name="" id="" /></p>
            <p>Email : <input type="email" disabled value={user?.email} name="" id="" /></p>
           <p>Address :  <textarea type="email" placeholder='your address' name="address" id="" /></p>
+          <p>Order Quantity : <input type="text" disabled value={oneParts.newQuantity} placeholder='your address' name="orderQuantity" id="" /></p>
            <p>Phone : <input type="number" placeholder='phone number' name="phone" id="" /></p>
           <p>Price : <input type="text" disabled value={oneParts.unitPrice} name="" id="" /></p>
                 <input className='btn btn-primary' type="submit" value="Order" name="" id="" />

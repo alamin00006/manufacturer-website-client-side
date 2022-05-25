@@ -51,7 +51,7 @@ const MyOrder = () => {
     <tbody>
      
       {
-          orders.map( (order, index) => <UserOrder key={order._id}
+          orders.map( (order, index) => <UserOrder orders={orders} setOrder={setOrder} key={order._id}
           order ={order} index ={index}
           ></UserOrder>)
       }
