@@ -18,6 +18,8 @@ import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Blog from './Pages/Home/Blog';
 import Payment from './Pages/Dashboard/Payment';
+import Footer from './Pages/Home/Footer';
+import NotFound from './Pages/Home/NotFound';
 function App() {
   return (
     <div>
@@ -41,7 +43,9 @@ function App() {
       
       <Route  path='/login' element={<Login></Login>}></Route>
       <Route  path='/signup' element={<SignUp></SignUp>}></Route>
+      <Route  path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
