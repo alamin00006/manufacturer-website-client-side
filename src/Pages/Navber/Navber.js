@@ -14,8 +14,7 @@ const Navber = () => {
   }
     const menuver = <>
     <li> <NavLink to ='/'>Home</NavLink> </li>
-    <li> <NavLink to ='/about'>About</NavLink> </li>
-    {user && <li> <NavLink to ='/dashboard'>Dashboard</NavLink> </li>}
+      {user && <li> <NavLink to ='/dashboard'>Dashboard</NavLink> </li>}
     <li> <NavLink to ='/blog'>Blog</NavLink> </li>
     <li> {user?<button onClick={logOut}>Logout</button> : <NavLink to ='/login'>Login</NavLink>} </li>
     </>

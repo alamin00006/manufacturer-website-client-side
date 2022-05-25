@@ -1,29 +1,15 @@
 import React from 'react';
 
-import { useAuthState } from 'react-firebase-hooks/auth';
-
-import auth from '../../firebase.init';
-
-const AddProduct = () => {
-    const [user] = useAuthState(auth);
-   
-    // "picture": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngimg.com%2Fimage%2F7719&psig=AOvVaw32AzT0MsLxk31_p-C-T_Hd&ust=1652034150412000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKDB6viAzvcCFQAAAAAdAAAAABAD",
-    // "unitPrice": 37,
-    // "quantity": 39,
-    // "minimumQuantity": 38,
-    // "name": "Cooper Hampton",
-    // "AvailableStock": 808,
-    // "description": 
-     
- const handleNewProduct = (event) =>{
+const AddReview = () => {
+ 
+ const handleNewReview = (event) =>{
      event.preventDefault();
      const name = event.target.name.value;
      const picture = event.target.picture.value;
      const description = event.target.description.value;
       const minimumQuantity = event.target.minimumQuantity.value;
      const AvailableStock = event.target.AvailableStock.value;
-    //  const quantity = parseInt(Stock)
-
+    
      const unitPrice = event.target.unitPrice.value;
      
 
@@ -49,7 +35,7 @@ const AddProduct = () => {
     return (
         <div className='text-center text-xl'>
             <h1 className='text-primary mt-5 text-3xl'>Add New Item</h1>
-            <form className='mt-5 bg-accent py-5 border rounded' onSubmit={handleNewProduct}>
+            <form className='mt-5 bg-accent py-5 border rounded' onSubmit={handleNewReview}>
                 <p>Product Name : <input className='px-5' type="text" name="name" id="" placeholder='name'/><br /></p>
                 
                 <br />
@@ -71,4 +57,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddReview;
