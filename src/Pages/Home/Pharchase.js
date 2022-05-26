@@ -193,7 +193,7 @@ const handleIncreaseQuantity = (event) =>{
   <input type="text" disabled value={oneParts.unitPrice} class="input input-bordered w-full max-w-xs" />
   
 
-  <input className='btn btn-secondary mt-2 pointer' type="submit" value="Order" class="input input-bordered w-full max-w-xs" />
+  <input className='btn btn-secondary mt-2 pointer' type="submit" value="Order" class="input input-bordered max-w-xs" />
   </form>
   </div>
           
