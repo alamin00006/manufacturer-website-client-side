@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     
     useEffect(() =>{
-        fetch('https://machine-parts.web.app/order')
+        fetch('https://secure-anchorage-88576.herokuapp.com/order')
         .then(res => res.json())
         .then(data =>setAllOrders(data))
     }, [])
@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
 const statusUpdated = (id) =>{
 
     const status = 'shift'
-    const url = `https://machine-parts.web.app/order/${id}`;
+    const url = `https://secure-anchorage-88576.herokuapp.com/order/${id}`;
           fetch(url, {
               method: 'PUT',
               headers: {

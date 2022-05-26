@@ -13,7 +13,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     useEffect( () =>{
         if(user){
-            fetch(`https://machine-parts.web.app/order?customer=${user.email}`, {
+            fetch(`https://secure-anchorage-88576.herokuapp.com/order?customer=${user.email}`, {
                 method: "GET",
                 headers: {
                     authorization : `Bearer ${localStorage.getItem('accessToken')}`

@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const [productDelete, setProductDelete] = useState(null)
     
     useEffect(() =>{
-        fetch('https://machine-parts.web.app/parts')
+        fetch('https://secure-anchorage-88576.herokuapp.com/parts')
         .then(res => res.json())
         .then(data =>setTools(data))
     }, [])

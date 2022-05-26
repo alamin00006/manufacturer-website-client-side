@@ -15,7 +15,7 @@ const CheckoutForm = ({data}) => {
    
 
    useEffect(() => {
-    fetch('https://machine-parts.web.app/create-payment-intent', {
+    fetch('https://secure-anchorage-88576.herokuapp.com/create-payment-intent', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({data}) => {
 
           }
 
-          fetch(`https://machine-parts.web.app/orders/${_id}`, {
+          fetch(`https://secure-anchorage-88576.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

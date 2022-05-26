@@ -5,7 +5,7 @@ const DeleteModal = ({productDelete, setTools, tools,setProductDelete}) => {
 
     const deleteTools =() =>{
        
-            const url = `https://machine-parts.web.app/parts/${_id}`;
+            const url = `https://secure-anchorage-88576.herokuapp.com/parts/${_id}`;
             fetch(url , {
                 method: "DELETE",
               }).then(res => res.json())

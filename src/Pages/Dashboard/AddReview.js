@@ -17,7 +17,7 @@ const AddProduct = () => {
         return setError(p)
      }
      else{
-        const url = 'https://machine-parts.web.app/reviews/';
+        const url = 'https://secure-anchorage-88576.herokuapp.com/reviews/';
      fetch(url , {
         method: "POST",
         headers:{

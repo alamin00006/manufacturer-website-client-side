@@ -22,7 +22,7 @@ const MyProfile = () => {
        
     
         if(email){
-          fetch(`https://machine-parts.web.app/profile/`, {
+          fetch(`https://secure-anchorage-88576.herokuapp.com/profile/`, {
                 method: 'PUT',
                 headers:{
                     'content-type': 'application/json'

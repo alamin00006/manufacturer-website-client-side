@@ -9,7 +9,7 @@ useEffect(() =>{
    const email = user?.email;
    console.log(email)
    if(email){
-    fetch(`https://machine-parts.web.app/admin/${email}`, {
+    fetch(`https://secure-anchorage-88576.herokuapp.com/admin/${email}`, {
           method: 'GET',
           headers:{
               'content-type': 'application/json',

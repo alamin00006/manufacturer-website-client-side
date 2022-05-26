@@ -14,7 +14,7 @@ const AddReview = () => {
      
 
      const newItem = {name,picture,description,unitPrice, minimumQuantity, AvailableStock};
-    const url = 'https://machine-parts.web.app/parts/';
+    const url = 'https://secure-anchorage-88576.herokuapp.com/parts/';
      fetch(url , {
         method: "POST",
         headers:{
