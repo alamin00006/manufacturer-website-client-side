@@ -15,7 +15,7 @@ const CheckoutForm = ({data}) => {
    
 
    useEffect(() => {
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://machine-parts.web.app/create-payment-intent', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({data}) => {
 
           }
 
-          fetch(`http://localhost:5000/orders/${_id}`, {
+          fetch(`https://machine-parts.web.app/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -9,7 +9,7 @@ const stripePromise=loadStripe('pk_test_51L2SF2APuqOzXrGiuYKCMJAZ8I0Zu6eikoKxiBI
 const Payment = () => {
     const {id} = useParams()
     console.log(id)
-    const url = `http://localhost:5000/orders/${id}`;
+    const url = `https://machine-parts.web.app/orders/${id}`;
     const {data : data, isLoading} = useQuery(['parts', id], ()=> fetch(url, {
         method:"GET",
         headers: {

@@ -17,7 +17,7 @@ const AddProduct = () => {
         return setError(p)
      }
      else{
-        const url = 'http://localhost:5000/reviews/';
+        const url = 'https://machine-parts.web.app/reviews/';
      fetch(url , {
         method: "POST",
         headers:{

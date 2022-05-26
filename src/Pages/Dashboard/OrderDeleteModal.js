@@ -4,7 +4,7 @@ const OrderDeleteModal = ({productDelete, setProductDelete,orders, setOrder}) =>
 const {_id,price, paid, productName} = productDelete;
     const handleDelete = () =>{
        
-            const url = `http://localhost:5000/order/${_id}`;
+            const url = `https://machine-parts.web.app/order/${_id}`;
             fetch(url , {
                 method: "DELETE",
               }).then(res => res.json())

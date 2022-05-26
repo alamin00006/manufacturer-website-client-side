@@ -13,7 +13,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     useEffect( () =>{
         if(user){
-            fetch(`http://localhost:5000/order?customer=${user.email}`, {
+            fetch(`https://machine-parts.web.app/order?customer=${user.email}`, {
                 method: "GET",
                 headers: {
                     authorization : `Bearer ${localStorage.getItem('accessToken')}`

@@ -14,7 +14,7 @@ const AddReview = () => {
      
 
      const newItem = {name,picture,description,unitPrice, minimumQuantity, AvailableStock};
-    const url = 'http://localhost:5000/parts/';
+    const url = 'https://machine-parts.web.app/parts/';
      fetch(url , {
         method: "POST",
         headers:{

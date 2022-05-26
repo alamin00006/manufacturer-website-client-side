@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     
     useEffect(() =>{
-        fetch('http://localhost:5000/order')
+        fetch('https://machine-parts.web.app/order')
         .then(res => res.json())
         .then(data =>setAllOrders(data))
     }, [])
@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
 const statusUpdated = (id) =>{
 
     const status = 'shift'
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://machine-parts.web.app/order/${id}`;
           fetch(url, {
               method: 'PUT',
               headers: {

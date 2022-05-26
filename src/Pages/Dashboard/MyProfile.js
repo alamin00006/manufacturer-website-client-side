@@ -22,7 +22,7 @@ const MyProfile = () => {
        
     
         if(email){
-          fetch(`http://localhost:5000/profile/`, {
+          fetch(`https://machine-parts.web.app/profile/`, {
                 method: 'PUT',
                 headers:{
                     'content-type': 'application/json'

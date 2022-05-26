@@ -9,7 +9,7 @@ useEffect(() =>{
    const email = user?.email;
    console.log(email)
    if(email){
-    fetch(`http://localhost:5000/admin/${email}`, {
+    fetch(`https://machine-parts.web.app/admin/${email}`, {
           method: 'GET',
           headers:{
               'content-type': 'application/json',

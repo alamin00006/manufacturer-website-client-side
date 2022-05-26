@@ -13,7 +13,7 @@ const Pharchase = () => {
 
 console.log(pharchaseId)
  useEffect( () =>{
-     const url = `http://localhost:5000/parts/${pharchaseId}`;
+     const url = `https://machine-parts.web.app/parts/${pharchaseId}`;
      fetch(url,{
        method:"GET",
        headers: {
@@ -41,7 +41,7 @@ const orderData = {
     orderQuantity: event.target.orderQuantity.value,
 
 }
-fetch('http://localhost:5000/order', {
+fetch('https://machine-parts.web.app/order', {
 method: 'POST',
 headers:{
   'content-type': 'application/json',
@@ -77,7 +77,7 @@ const handleIncreaseQuantity = (event) =>{
   else{
     const quantity = newQuantity1 + parseInt(oneParts.minimumQuantity);
     const newQuantity = {quantity};
-    const url = `http://localhost:5000/parts/${pharchaseId}`;
+    const url = `https://machine-parts.web.app/parts/${pharchaseId}`;
           fetch(url, {
               method: 'PUT',
               headers: {
@@ -107,7 +107,7 @@ const handleIncreaseQuantity = (event) =>{
   }
   else{
     const updateQuantity = {quantity}
-  const url = `http://localhost:5000/parts/${pharchaseId}`;
+  const url = `https://machine-parts.web.app/parts/${pharchaseId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
