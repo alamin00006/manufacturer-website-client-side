@@ -1,9 +1,11 @@
 import React from 'react';
-
+import offer from '../../assets/images/offer.png'
 const ProductOffers = () => {
     return (
-        <div className='text-center text-5xl'>
-            <h1>This my Product Offer</h1>
+        <div className='text-5xl text-center w-full'>
+            <h1 className='text-secondary my-5'>This Month Offers</h1>
+            <h4 className='text-yellow-500 my-5'>Upto 1000 Parts to buy 50% free</h4>
+            <img className='w-3/4 ml-36 flex text-center' src={offer} alt=''></img>
         </div>
     );
 };

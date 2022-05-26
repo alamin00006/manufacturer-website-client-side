@@ -130,33 +130,72 @@ const handleIncreaseQuantity = (event) =>{
 
 
     return (
-        <div className='text-center bg-red-200'>
-          <h1 className='text-primary text-3xl'>Phurchase Page</h1>
+        <div className='text-center bg-red-200 flex justify-center'>
+        <div>
+        <h1 className='text-primary text-3xl'>Phurchase Page</h1>
           
-          <p> product Name :{oneParts.name}</p>
+          <div className='flex'>
+            <div>
+              <img className='w-48' src={oneParts.picture} alt=""/>
+            </div>
+            <div><p> product Name :{oneParts.name}</p>
           <p> Minimum Order :{oneParts.minimumQuantity}</p>
           <p> Order Quantity:{oneParts.newQuantity}</p>
            <p> Available Stock: {oneParts.AvailableStock}</p>
            <p> Unit Price: {oneParts.unitPrice}</p>
            {error}
-           <button onClick={handleDecreseQuantity} className='btn btn-warning text-5xl'>-</button>
+           <button onClick={handleDecreseQuantity} className='btn btn-primary'>Decrease</button>
           
+           </div>
+          </div>
+           
            <form onSubmit={handleIncreaseQuantity}>
-            <input type="text" className='w-60 border rounded'  name="quantity" id="" />
-            <input className='btn btn-primary ml-2' type="submit" value="Quantity increase" />
+            <input type="text" className='w-60 border rounded mt-5 p-3' placeholder='Your Order Quantity' name="quantity" id="" />
+            <input className='btn btn-primary mx-2 ' type="submit" value="Quantity increase" />
            </form>
+        </div>
 
           <div>
-            <form onSubmit={handleOrder}>
-           <p>Name :  <input type="text" disabled value={user?.displayName} name="" id="" /></p>
-           <p>Email : <input type="email" disabled value={user?.email} name="" id="" /></p>
-          <p>Address :  <textarea type="email" placeholder='your address' name="address" id="" /></p>
-          <p>Order Quantity : <input type="text" disabled value={oneParts.newQuantity} placeholder='your address' name="orderQuantity" id="" /></p>
-           <p>Phone : <input type="number" placeholder='phone number' name="phone" id="" /></p>
-          <p>Price : <input type="text" disabled value={oneParts.unitPrice} name="" id="" /></p>
-                <input className='btn btn-primary' type="submit" value="Order" name="" id="" />
-            </form>
-          </div>
+         
+<form onSubmit={handleOrder}>
+<label class="label">
+    <span class="label-text">Name</span>
+    
+  </label>
+  <input type="text" disabled value={user?.displayName} class="input input-bordered w-full max-w-xs" />
+
+<label class="label">
+    <span class="label-text">Email</span>
+    
+  </label>
+  <input type="email" disabled value={user?.email} class="input input-bordered w-full max-w-xs" />
+  
+<label class="label">
+    <span class="label-text">Address</span>
+    
+  </label>
+  <input type="text"placeholder='your address' name="address" class="input input-bordered w-full max-w-xs" />
+  
+<label class="label">
+    <span class="label-text">Order Quantity</span>
+    
+  </label>
+  <input type="text" disabled value={oneParts.newQuantity} name="orderQuantity" class="input input-bordered w-full max-w-xs" />
+<label class="label">
+    <span class="label-text">Phone</span>
+    
+  </label>
+  <input type="number" placeholder='phone number' name="phone" class="input input-bordered w-full max-w-xs" />
+<label class="label">
+    <span class="label-text">Price</span>
+    
+  </label>
+  <input type="text" disabled value={oneParts.unitPrice} class="input input-bordered w-full max-w-xs" />
+  
+
+  <input className='btn btn-secondary mt-2 pointer' type="submit" value="Order" class="input input-bordered w-full max-w-xs" />
+  </form>
+  </div>
           
          
 
