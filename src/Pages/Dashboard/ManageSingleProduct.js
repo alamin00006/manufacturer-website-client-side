@@ -3,7 +3,6 @@ import React from 'react';
 const ManageSingleProduct = ({tool, tools, setTools, setProductDelete}) => {
     const {_id, name, picture, unitPrice, minimumQuantity,AvailableStock, description} = tool;
   
- 
      return (
          <div class="card w-96 bg-base-100 shadow-xl ">
    <figure class="px-10 pt-10">
