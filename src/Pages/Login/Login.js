@@ -29,11 +29,6 @@ useEffect(() =>{
   }
 }, [token, from, navigate])
 
-// useEffect(() =>{
-//   if(user ||gUser){
-//     navigate(from, { replace: true });
-//   }
-// }, [user ||gUser])
 if( loading || gLoading){
   return <Loading></Loading>
 }
@@ -46,6 +41,10 @@ const onSubmit = data =>{
 console.log(data);
 signInWithEmailAndPassword(data.email, data.password)
 };
+
+
+
+
     return (
    <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">

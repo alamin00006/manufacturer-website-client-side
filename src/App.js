@@ -20,6 +20,7 @@ import Blog from './Pages/Home/Blog';
 import Payment from './Pages/Dashboard/Payment';
 import Footer from './Pages/Home/Footer';
 import NotFound from './Pages/Home/NotFound';
+import MyPortfolio from './Pages/Dashboard/MyPortfolio';
 function App() {
   return (
     <div>
@@ -34,6 +35,7 @@ function App() {
         <Route path='users' element={<MakeAdmin></MakeAdmin>}></Route>
         <Route path='allorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
         <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
         <Route path="payment/:id" element ={<Payment></Payment>}></Route>
       </Route>
