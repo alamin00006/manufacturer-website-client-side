@@ -24,7 +24,7 @@ const Payment = () => {
         <div>
            <div class="card w-96 bg-base-100 shadow-xl my-12">
   <div class="card-body">
-    <h2 class="card-title">{data?.name}</h2>
+    <h2 class="card-title">{data?.productName}</h2>
         <div class="card-actions justify-end">
         <p>Please Pay : ${data?.price}</p>
       

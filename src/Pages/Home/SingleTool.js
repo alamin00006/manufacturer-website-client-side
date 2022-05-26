@@ -10,7 +10,7 @@ navigate(`purchase/${_id}`)
 }
 
     return (
-        <div class="card w-96 bg-base-100 shadow-xl ">
+        <div class="card w-96 bg-yellow-100 my-5 shadow-xl ">
   <figure class="px-10 pt-10">
     <img src={picture} alt="" class="rounded-xl" />
   </figure>
