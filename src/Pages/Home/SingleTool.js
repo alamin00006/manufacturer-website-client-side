@@ -10,7 +10,7 @@ navigate(`purchase/${_id}`)
 }
 
     return (
-        <div class="card w-96 bg-yellow-100 my-5 shadow-xl ">
+        <div class="card w-96 bg-rose-50 my-5 shadow-xl ">
   <figure class="px-10 pt-10">
     <img src={picture} alt="" class="rounded-xl" />
   </figure>
@@ -21,7 +21,7 @@ navigate(`purchase/${_id}`)
     <p>Minimum Order : {minimumQuantity}</p>
     <p>{description.slice(0,50)}</p>
     <div class="card-actions">
-      <button onClick={pharchase} class="btn btn-primary"><Link to="/purchase">Pharchase Now</Link></button>
+      <button onClick={pharchase} class="btn btn-secondary text-xl font-bold "><Link to="/purchase">Pharchase Now</Link></button>
       
     </div>
   </div>

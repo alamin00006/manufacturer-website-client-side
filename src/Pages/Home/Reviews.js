@@ -12,7 +12,7 @@ const Reviews = () => {
     }, [])
     return (
         <div>
-            <h1 className='text-primary text-3xl text-center'>Our Coustomer Reviews </h1>
+            <h1 className='text-blue-600 text-5xl mt-5 text-center'>Our Coustomer Reviews </h1>
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
             {
                 reviews.map(myReview => <Review

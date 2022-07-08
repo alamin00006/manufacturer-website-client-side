@@ -12,8 +12,8 @@ const Subscribe = () => {
             <br />
             <input type="text" placeholder="Your Phone Number" class="input w-96 input-bordered my-2 max-w-xs" />
             <br />
-            <textarea class="textarea w-96  textarea-primary" placeholder="Typing here"></textarea><br />
-            <button class="btn btn-secondary">Submit</button>
+            <textarea class="textarea w-80 h-28 textarea-primary" placeholder="Typing here"></textarea><br />
+            <button class="btn btn-secondary text-xl w-80 font-bold">Submit</button>
 
 </div>
     );

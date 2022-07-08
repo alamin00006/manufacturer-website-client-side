@@ -13,13 +13,13 @@ const Navber = () => {
     localStorage.removeItem('accessToken')
   }
     const menuver = <>
-    <li> <NavLink to ='/'>Home</NavLink> </li>
-      {user && <li> <NavLink to ='/dashboard'>Dashboard</NavLink> </li>}
-    <li> <NavLink to ='/blog'>Blog</NavLink> </li>
-    <li> {user?<button onClick={logOut}>Logout</button> : <NavLink to ='/login'>Login</NavLink>} </li>
+    <li className='text-xl'> <NavLink to ='/'>Home</NavLink> </li>
+      {user && <li className='text-xl'> <NavLink to ='/dashboard'>Dashboard</NavLink> </li>}
+    <li className='text-xl'> <NavLink to ='/blog'>Blog</NavLink> </li>
+    <li className='text-xl'> {user?<button onClick={logOut}>Logout</button> : <NavLink to ='/login'>Login</NavLink>} </li>
     </>
     return (
-        <div class="navbar bg-blue-200 justify-between">
+        <div class="navbar bg-black justify-between text-white">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -29,7 +29,7 @@ const Navber = () => {
               {menuver}
             </ul>
           </div>
-          <Link to="/" class="btn btn-ghost normal-case text-xl">Machins Repair Parts</Link>
+          <Link to="/" class="btn btn-ghost  text-2xl uppercase">Machins Repair Parts</Link>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">

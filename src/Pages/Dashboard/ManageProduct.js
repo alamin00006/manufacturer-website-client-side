@@ -14,7 +14,7 @@ const ManageProduct = () => {
 
     return (
         <div className='mt-10'>
-            <h1 className='text-center text-teal-500 text-3xl'>Our Machin Tools {tools.length}</h1>
+            <h1 className='text-center text-black text-5xl'>Our Machin Tools</h1>
            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
            {
                 tools.map(tool => <ManageSingleProduct key={tool.id} 

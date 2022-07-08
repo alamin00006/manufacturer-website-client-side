@@ -3,7 +3,7 @@ import React from 'react';
 const OurBusiness = () => {
     return (
         <div className='text-center my-5'>
-            <h1 className='text-center text-5xl text-secondary my-5'>Our Business Trust Us</h1>
+            <h1 className='text-center  text-blue-600 text-5xl my-5'>Our Business Trust Us</h1>
 
             <div class="stats stats-vertical flex shadow h-48">
   

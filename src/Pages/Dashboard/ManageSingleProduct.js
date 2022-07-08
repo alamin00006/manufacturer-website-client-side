@@ -4,7 +4,7 @@ const ManageSingleProduct = ({tool, tools, setTools, setProductDelete}) => {
     const {_id, name, picture, unitPrice, minimumQuantity,AvailableStock, description} = tool;
   
      return (
-         <div class="card w-96 bg-base-100 shadow-xl ">
+         <div class="card w-96 mt-5 p-5 bg-rose-50 shadow-xl ">
    <figure class="px-10 pt-10">
      <img src={picture} alt="/" class="rounded-xl" />
    </figure>
