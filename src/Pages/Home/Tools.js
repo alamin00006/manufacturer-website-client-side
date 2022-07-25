@@ -17,7 +17,7 @@ const Tools = () => {
 
 
     return (
-        <div className='mt-10'>
+        <div className='mt-10 ml-16'>
             <h1 className='text-center text-blue-600 text-5xl'>Our Machin Tools</h1>
             
            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>

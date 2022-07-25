@@ -11,7 +11,7 @@ const Reviews = () => {
         .then(data =>setReviews(data))
     }, [])
     return (
-        <div>
+        <div className='ml-16'>
             <h1 className='text-blue-600 text-5xl mt-5 text-center'>Our Coustomer Reviews </h1>
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
             {
